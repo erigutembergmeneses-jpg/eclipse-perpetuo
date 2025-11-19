@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+      <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+        <li>Ativa áreas cerebrais ligadas à compaixão profunda.</li>
+        <li>Experiência sensorial: use fones ou toque no alto-falante.</li>
+        <li>Duração: 5 minutos — uma única história.</li>
+      </ul>
+      <a href="#" class="btn" id="btn-empatia">Iniciar simulador</a>
+    </section>
+
+    <section>
+      <h2>🎮 Versão Web do Protocolo Eclipse 2.0</h2>
+      <p><em>“Jogue para reconstruir. Não para vencer.”</em></p>
+      <p>Imersão leve em RA/VR via navegador — sem headset.</p>
+      <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+        <li><strong>Survival Mode</strong>: Consequências éticas no pós-silêncio.</li>
+        <li><strong>RPG Restaurativo</strong>: Alianças com NPCs neurodivergentes.</li>
+        <li><strong>SocialSim</strong>: Até 4 jogadores — cada ação exige reparação.</li>
+      </ul>
+      <a href="#" class="btn" id="btn-eclipse2">Iniciar Protocolo 2.0</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 José Erigutemberg Meneses de Lima — <em>Blumenau, SC</em></p>
+    <p>Atualização: 19 de novembro de 2025 — Chapecó inaugurou o primeiro “Centro de Reparação Sem Tempo”.</p>
+    <p><em>Este site é uma experiência contínua. Seu corpo é parte do código.</em></p>
+  </footer>
+
+  <script>
+    // Simula interatividade mínima (pode ser expandido com backend/API)
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const action = e.target.id;
+        let msg = '';
+
+        switch(action) {
+          case 'btn-mapa':
+            msg = '⚠️ Mapa em desenvolvimento. Em breve com dados reais de Noruega, Bogotá e Chapecó.';
+            break;
+          case 'btn-memoria':
+            msg = '🔒 O Banco de Memória Afetiva será lançado com criptografia de ponta-a-ponta.';
+            break;
+          case 'btn-empatia':
+            msg = '🎧 Simulador carregando... (requer permissão de áudio e microfone).';
+            break;
+          case 'btn-eclipse2':
+            msg = '🎮 Protocolo Eclipse 2.0 iniciando em modo demo (WebXR fallback ativado).';
+            break;
+          default:
+            msg = '🌑 Sistema Eclipse iniciado.';
+        }
+
+        alert(`[ECLIPSE CORE] ${msg}`);
+      });
+    });
+
+    // Efeito de respiração suave no título
+    const title = document.querySelector('.glitch');
+    setInterval(() => {
+      title.style.textShadow = '0 0 ' + (10 + 5 * Math.sin(Date.now()/800)) + 'px rgba(122,90,165,0.4)';
+    }, 100);
+  </script>
+
+</body>
+</html>
