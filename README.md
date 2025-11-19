@@ -17,3 +17,20 @@ O site é uma experiência simbólica e funcional, inspirada na capa do livro (`
 ---
 
 ## 🗂 Estrutura do Projeto
+
+- **Autor do livro & concepção**: José Erigutemberg Meneses de Lima  
+- **Design conceitual**: inspirado em *violência hereditária*, plasticidade pré-frontal adolescente e justiça restaurativa internacional (Noruega, Colômbia, Brasil)  
+- **Estética**: glitch lento, neurominimalismo, acessibilidade sensorial
+
+---
+
+## 📬 Contato
+
+> Chaos Sabotage Movement  
+> ✉️ chaos@eclipseperpetuo.com  
+> 🌐 [www.eclipseperpetuo.com](https://www.eclipseperpetuo.com) *(domínio em reserva)*
+
+---
+
+> 🔚 _"Falhar é um verbo intransitivo. Reparar, um coletivo."_  
+> — José Erigutemberg, *O Eclipse Perpétuo*, p. 217
