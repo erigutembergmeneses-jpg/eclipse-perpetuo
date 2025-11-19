@@ -7,42 +7,52 @@
   <meta name="description" content="Um portal vivo para justiça neurocompatível, memória afetiva e empatia desacelerada.">
   <link rel="icon" href="image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌑</text></svg>">
   <style>
-    /* === GLOBAL === */
     :root {
-      --black: #0c0c0c;
-      --deep: #1a1a1a;
-      --ash: #2e2e2e;
-      --pulse: #4d3b6a;
-      --glow: #7a5aa5;
-      --text: #e0e0e0;
+      --black: #0a0a0a;
+      --deep: #141414;
+      --ash: #2a2a2a;
+      --pulse: #5a3f7d;
+      --glow: #8d66c2;
+      --text: #eaeaea;
+      --text-dim: #b0b0b0;
       --slow: 0.8s;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--black) url('Capa.jpg') center/cover fixed no-repeat;
       color: var(--text);
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
-      overflow-x: hidden;
       min-height: 100vh;
-      position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
+      background-color: var(--black);
+      padding-top: 4rem;
     }
 
+    /* ✅ Fundo com fallback: imagem se existir, senão gradiente simbólico */
     body::before {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(12,12,12,0.85);
+      background: 
+        linear-gradient(160deg, 
+          rgba(10,10,10,0.95) 0%, 
+          rgba(20,20,20,0.85) 50%, 
+          rgba(30,20,40,0.9) 100%);
+      z-index: -2;
+    }
+
+    /* Tenta carregar a capa — se falhar, nada quebra */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('Capa.jpg') center/cover no-repeat;
+      opacity: 0.35;
       z-index: -1;
       pointer-events: none;
     }
@@ -55,33 +65,34 @@
     a {
       color: var(--glow);
       text-decoration: none;
-      transition: opacity var(--slow);
+      transition: opacity 0.4s;
     }
     a:hover { opacity: 0.7; }
 
     .container {
-      max-width: 800px;
+      max-width: 760px;
+      width: 92%;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
-      z-index: 10;
     }
 
     section {
       margin: 2rem 0;
-      padding: 1.5rem;
-      background: rgba(26,26,26,0.7);
-      border-left: 2px solid var(--pulse);
-      backdrop-filter: blur(4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      padding: 1.8rem;
+      background: rgba(20,20,20,0.65);
+      border-left: 3px solid var(--pulse);
+      border-radius: 0 8px 8px 0;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
     }
 
     .glitch {
       position: relative;
       display: inline-block;
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -1px;
-      text-shadow: 0 0 10px rgba(122,90,165,0.3);
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 12px rgba(141,102,194,0.4);
+      margin-bottom: 0.8rem;
     }
     .glitch::before,
     .glitch::after {
@@ -90,105 +101,96 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.15;
+      opacity: 0.12;
     }
     .glitch::before {
       color: #ff00c8;
-      animation: glitch-anim-1 3s infinite;
+      animation: glitch-anim-1 2.8s infinite;
     }
     .glitch::after {
-      color: #00fdff;
-      animation: glitch-anim-2 3.2s infinite;
+      color: #00eaff;
+      animation: glitch-anim-2 3.1s infinite;
     }
-
     @keyframes glitch-anim-1 {
       0%, 100% { transform: translate(0); }
-      10% { transform: translate(-2px, 2px); }
-      20% { transform: translate(-1px, -1px); }
-      30% { transform: translate(2px, 1px); }
-      40% { transform: translate(1px, -2px); }
+      2% { transform: translate(-2px, 1px); }
+      5% { transform: translate(1px, -1px); }
+      9% { transform: translate(-1px, 2px); }
     }
     @keyframes glitch-anim-2 {
       0%, 100% { transform: translate(0); }
-      15% { transform: translate(2px, -1px); }
-      35% { transform: translate(-2px, 1px); }
-      55% { transform: translate(1px, 2px); }
-      75% { transform: translate(-1px, -1px); }
+      3% { transform: translate(2px, -1px); }
+      6% { transform: translate(-1px, 1px); }
+      8% { transform: translate(1px, -2px); }
     }
 
-    /* === BUTTONS === */
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-dim);
+      max-width: 600px;
+      text-align: center;
+      margin: 0 auto 2rem;
+      line-height: 1.5;
+    }
+
     .btn {
       display: inline-block;
-      padding: 0.8rem 1.5rem;
+      padding: 0.85rem 1.7rem;
       margin-top: 1rem;
       background: transparent;
       border: 1px solid var(--glow);
       color: var(--glow);
-      font-weight: 400;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.4s;
+      border-radius: 2px;
     }
     .btn:hover {
-      background: rgba(122, 90, 165, 0.2);
-      box-shadow: 0 0 12px rgba(122, 90, 165, 0.4);
+      background: rgba(141, 102, 194, 0.15);
+      box-shadow: 0 0 16px rgba(141, 102, 194, 0.5);
     }
 
-    /* === HEADER === */
-    header {
-      text-align: center;
-      padding: 3rem 1rem 1rem;
-      z-index: 10;
+    ul {
+      padding-left: 1.6rem;
+      margin: 1rem 0 1.5rem;
+    }
+    li {
+      margin: 0.6rem 0;
+      color: var(--text-dim);
     }
 
-    .title {
-      font-size: 2.4rem;
-      margin: 0.5rem 0;
-      text-shadow: 0 0 10px rgba(122,90,165,0.3);
-    }
-
-    .subtitle {
-      font-size: 1.1rem;
-      color: #aaa;
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
-    }
-
-    /* === FOOTER === */
     footer {
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 2.5rem 1rem 1.5rem;
       font-size: 0.9rem;
-      color: #777;
-      border-top: 1px solid rgba(77,59,106,0.3);
-      margin-top: 2rem;
-      z-index: 10;
+      color: #888;
       width: 100%;
+      border-top: 1px solid rgba(90, 63, 125, 0.2);
+      margin-top: 2rem;
     }
 
-    /* === MOBILE === */
     @media (max-width: 600px) {
-      .title { font-size: 1.8rem; }
-      section { padding: 1rem; }
-      .container { padding: 1rem; }
+      .glitch { font-size: 2rem; }
+      section { padding: 1.4rem; }
+      .subtitle { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="glitch" data-text="O ECLIPSE PERPÉTUO">O ECLIPSE PERPÉTUO</div>
-    <p class="subtitle">“O silêncio mudou tudo. Você vai reiniciar… ou rebelar?”</p>
-  </header>
-
-  <main class="container">
+  <div class="container">
+    <header style="text-align: center; margin-bottom: 2rem;">
+      <div class="glitch" data-text="O ECLIPSE PERPÉTUO">O ECLIPSE PERPÉTUO</div>
+      <p class="subtitle">“O silêncio mudou tudo. Você vai reiniciar… ou rebelar?”</p>
+    </header>
 
     <section>
       <h2>🪐 Mapa da Justiça Neurocompatível</h2>
       <p><em>“Não estamos sozinhos. O Eclipse já começou em lugares inesperados.”</em></p>
-      <p>Explore o mapa interativo onde comunidades aplicam os princípios do livro:</p>
-      <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+      <ul>
         <li>🇳🇴 <strong>Noruega</strong>: Programa “Svart Sol” — justiça restaurativa com foco em neurodiversidade.</li>
         <li>🇨🇴 <strong>Bogotá</strong>: “Eclipse Urbano” — oficinas de reparação coletiva em escolas e favelas.</li>
         <li>🇧🇷 <strong>Chapecó</strong>: “Rede da Lentidão” — escuta profunda e protocolos sem punição.</li>
@@ -199,8 +201,7 @@
     <section>
       <h2>💞 Banco de Memória Afetiva</h2>
       <p><em>“Falhar não é erro. É matéria-prima da reparação.”</em></p>
-      <p>Um santuário anônimo para histórias de dor, culpa e redenção.</p>
-      <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+      <ul>
         <li>Deposite em texto, áudio ou vídeo (voz distorcida opcional).</li>
         <li>Categorias: <em>“Quando eu errei”</em>, <em>“Quando me perdoaram”</em>, <em>“Quando decidi parar”</em>.</li>
         <li>Responda com emojis vibratórios: ❤️ 🌀 🙏</li>
@@ -211,8 +212,7 @@
     <section>
       <h2>🎧 Simulador de Empatia Desacelerada</h2>
       <p><em>“Escute como se o tempo fosse feito de ossos.”</em></p>
-      <p>Ouça um depoimento real a <strong>30% da velocidade</strong> e responda com vibração óssea simulada.</p>
-      <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+      <ul>
         <li>Ativa áreas cerebrais ligadas à compaixão profunda.</li>
         <li>Experiência sensorial: use fones ou toque no alto-falante.</li>
         <li>Duração: 5 minutos — uma única história.</li>
@@ -223,8 +223,7 @@
     <section>
       <h2>🎮 Versão Web do Protocolo Eclipse 2.0</h2>
       <p><em>“Jogue para reconstruir. Não para vencer.”</em></p>
-      <p>Imersão leve em RA/VR via navegador — sem headset.</p>
-      <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+      <ul>
         <li><strong>Survival Mode</strong>: Consequências éticas no pós-silêncio.</li>
         <li><strong>RPG Restaurativo</strong>: Alianças com NPCs neurodivergentes.</li>
         <li><strong>SocialSim</strong>: Até 4 jogadores — cada ação exige reparação.</li>
@@ -232,47 +231,33 @@
       <a href="#" class="btn" id="btn-eclipse2">Iniciar Protocolo 2.0</a>
     </section>
 
-  </main>
-
-  <footer>
-    <p>© 2025 José Erigutemberg Meneses de Lima — <em>Blumenau, SC</em></p>
-    <p>Atualização: 19 de novembro de 2025 — Chapecó inaugurou o primeiro “Centro de Reparação Sem Tempo”.</p>
-    <p><em>Este site é uma experiência contínua. Seu corpo é parte do código.</em></p>
-  </footer>
+    <footer>
+      <p>© 2025 José Erigutemberg Meneses de Lima — <em>Blumenau, SC</em></p>
+      <p>Atualização: 19 de novembro de 2025 — Chapecó inaugurou o primeiro “Centro de Reparação Sem Tempo”.</p>
+      <p><em>Este site é uma experiência contínua. Seu corpo é parte do código.</em></p>
+    </footer>
+  </div>
 
   <script>
-    // Simula interatividade mínima (pode ser expandido com backend/API)
     document.querySelectorAll('.btn').forEach(btn => {
       btn.addEventListener('click', e => {
         e.preventDefault();
-        const action = e.target.id;
-        let msg = '';
-
-        switch(action) {
-          case 'btn-mapa':
-            msg = '⚠️ Mapa em desenvolvimento. Em breve com dados reais de Noruega, Bogotá e Chapecó.';
-            break;
-          case 'btn-memoria':
-            msg = '🔒 O Banco de Memória Afetiva será lançado com criptografia de ponta-a-ponta.';
-            break;
-          case 'btn-empatia':
-            msg = '🎧 Simulador carregando... (requer permissão de áudio e microfone).';
-            break;
-          case 'btn-eclipse2':
-            msg = '🎮 Protocolo Eclipse 2.0 iniciando em modo demo (WebXR fallback ativado).';
-            break;
-          default:
-            msg = '🌑 Sistema Eclipse iniciado.';
-        }
-
-        alert(`[ECLIPSE CORE] ${msg}`);
+        const id = e.target.id;
+        const msgs = {
+          'btn-mapa': '⚠️ Mapa em desenvolvimento. Em breve com dados reais de Noruega, Bogotá e Chapecó.',
+          'btn-memoria': '🔒 O Banco de Memória Afetiva será lançado com criptografia de ponta-a-ponta.',
+          'btn-empatia': '🎧 Simulador carregando... (requer permissão de áudio e microfone).',
+          'btn-eclipse2': '🎮 Protocolo Eclipse 2.0 iniciando em modo demo (WebXR fallback ativado).'
+        };
+        alert(`[ECLIPSE CORE] ${msgs[id] || 'Sistema Eclipse iniciado.'}`);
       });
     });
 
-    // Efeito de respiração suave no título
+    // Respiração suave no título
     const title = document.querySelector('.glitch');
     setInterval(() => {
-      title.style.textShadow = '0 0 ' + (10 + 5 * Math.sin(Date.now()/800)) + 'px rgba(122,90,165,0.4)';
+      const intensity = 4 + 3 * Math.sin(Date.now() / 1000);
+      title.style.textShadow = `0 0 ${intensity}px rgba(141,102,194,0.5)`;
     }, 100);
   </script>
 
