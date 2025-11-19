@@ -1,4 +1,217 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O Eclipse Perpétuo</title>
+  <meta name="description" content="Um portal vivo para justiça neurocompatível, memória afetiva e empatia desacelerada.">
+  <link rel="icon" href="image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌑</text></svg>">
+  <style>
+    /* === GLOBAL === */
+    :root {
+      --black: #0c0c0c;
+      --deep: #1a1a1a;
+      --ash: #2e2e2e;
+      --pulse: #4d3b6a;
+      --glow: #7a5aa5;
+      --text: #e0e0e0;
+      --slow: 0.8s;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--black) url('Capa.jpg') center/cover fixed no-repeat;
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(12,12,12,0.85);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 300;
+      letter-spacing: -0.5px;
+    }
+
+    a {
+      color: var(--glow);
+      text-decoration: none;
+      transition: opacity var(--slow);
+    }
+    a:hover { opacity: 0.7; }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      z-index: 10;
+    }
+
+    section {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(26,26,26,0.7);
+      border-left: 2px solid var(--pulse);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .glitch {
+      position: relative;
+      display: inline-block;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      text-shadow: 0 0 10px rgba(122,90,165,0.3);
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+    }
+    .glitch::before {
+      color: #ff00c8;
+      animation: glitch-anim-1 3s infinite;
+    }
+    .glitch::after {
+      color: #00fdff;
+      animation: glitch-anim-2 3.2s infinite;
+    }
+
+    @keyframes glitch-anim-1 {
+      0%, 100% { transform: translate(0); }
+      10% { transform: translate(-2px, 2px); }
+      20% { transform: translate(-1px, -1px); }
+      30% { transform: translate(2px, 1px); }
+      40% { transform: translate(1px, -2px); }
+    }
+    @keyframes glitch-anim-2 {
+      0%, 100% { transform: translate(0); }
+      15% { transform: translate(2px, -1px); }
+      35% { transform: translate(-2px, 1px); }
+      55% { transform: translate(1px, 2px); }
+      75% { transform: translate(-1px, -1px); }
+    }
+
+    /* === BUTTONS === */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      margin-top: 1rem;
+      background: transparent;
+      border: 1px solid var(--glow);
+      color: var(--glow);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.4s;
+    }
+    .btn:hover {
+      background: rgba(122, 90, 165, 0.2);
+      box-shadow: 0 0 12px rgba(122, 90, 165, 0.4);
+    }
+
+    /* === HEADER === */
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      z-index: 10;
+    }
+
+    .title {
+      font-size: 2.4rem;
+      margin: 0.5rem 0;
+      text-shadow: 0 0 10px rgba(122,90,165,0.3);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid rgba(77,59,106,0.3);
+      margin-top: 2rem;
+      z-index: 10;
+      width: 100%;
+    }
+
+    /* === MOBILE === */
+    @media (max-width: 600px) {
+      .title { font-size: 1.8rem; }
+      section { padding: 1rem; }
+      .container { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="glitch" data-text="O ECLIPSE PERPÉTUO">O ECLIPSE PERPÉTUO</div>
+    <p class="subtitle">“O silêncio mudou tudo. Você vai reiniciar… ou rebelar?”</p>
+  </header>
+
+  <main class="container">
+
+    <section>
+      <h2>🪐 Mapa da Justiça Neurocompatível</h2>
+      <p><em>“Não estamos sozinhos. O Eclipse já começou em lugares inesperados.”</em></p>
+      <p>Explore o mapa interativo onde comunidades aplicam os princípios do livro:</p>
+      <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+        <li>🇳🇴 <strong>Noruega</strong>: Programa “Svart Sol” — justiça restaurativa com foco em neurodiversidade.</li>
+        <li>🇨🇴 <strong>Bogotá</strong>: “Eclipse Urbano” — oficinas de reparação coletiva em escolas e favelas.</li>
+        <li>🇧🇷 <strong>Chapecó</strong>: “Rede da Lentidão” — escuta profunda e protocolos sem punição.</li>
+      </ul>
+      <a href="#" class="btn" id="btn-mapa">Explorar o mapa</a>
+    </section>
+
+    <section>
+      <h2>💞 Banco de Memória Afetiva</h2>
+      <p><em>“Falhar não é erro. É matéria-prima da reparação.”</em></p>
+      <p>Um santuário anônimo para histórias de dor, culpa e redenção.</p>
+      <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+        <li>Deposite em texto, áudio ou vídeo (voz distorcida opcional).</li>
+        <li>Categorias: <em>“Quando eu errei”</em>, <em>“Quando me perdoaram”</em>, <em>“Quando decidi parar”</em>.</li>
+        <li>Responda com emojis vibratórios: ❤️ 🌀 🙏</li>
+      </ul>
+      <a href="#" class="btn" id="btn-memoria">Depositar minha história</a>
+    </section>
+
+    <section>
+      <h2>🎧 Simulador de Empatia Desacelerada</h2>
+      <p><em>“Escute como se o tempo fosse feito de ossos.”</em></p>
+      <p>Ouça um depoimento real a <strong>30% da velocidade</strong> e responda com vibração óssea simulada.</p>
       <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
         <li>Ativa áreas cerebrais ligadas à compaixão profunda.</li>
         <li>Experiência sensorial: use fones ou toque no alto-falante.</li>
